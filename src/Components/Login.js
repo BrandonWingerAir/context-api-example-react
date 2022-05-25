@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { LoginContext } from '../Contexts/LoginContext';
 
 function Login() {
-    const [username, setUsername] = useState('');
-    const [showUsername, setShowUsername] = useState(false);
+    const { setUsername, setShowUsername } = useContext(LoginContext);
 
     return (
         <>
@@ -15,15 +15,13 @@ function Login() {
             />
 
             <input type="text" placeholder="Password..."/>
-            <button
+            <button 
                 onClick={() => {
                     setShowUsername(true);
                 }}
             >
                 LOGIN
             </button>
-
-            {showUsername && <h1>{username}</h1>}
         </>
     )
 }
